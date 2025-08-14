@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\net">
+      <UniqueIdentifier>{b84365dc-4d32-4d30-8d0b-bf490e225496}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\net\tcp">
+      <UniqueIdentifier>{5e3c93cb-fc9c-4588-a183-037b92c7d044}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\net\tcp\co_tcp">
+      <UniqueIdentifier>{cea1f062-b124-4ba2-ad22-306541b5a73e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\utils">
+      <UniqueIdentifier>{dbce6db1-e4fe-4b6f-a6a1-215d97f5e20b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\utils\av">
+      <UniqueIdentifier>{7c8e8568-2c9b-41a9-a452-af4040d447ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\net\tcp\co_tcp\co_tcp_client">
+      <UniqueIdentifier>{47d57d11-9603-4e3b-ae99-43d16e736ade}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\net\tcp\co_tcp\co_tcp_server">
+      <UniqueIdentifier>{22237b91-e22e-47e0-a2bb-e994492d706b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\net\tcp\co_tcp\co_tcp_pub.cpp">
+      <Filter>源文件\net\tcp\co_tcp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\base64.cpp">
+      <Filter>源文件\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\byte_crypto.cpp">
+      <Filter>源文件\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\crc.cpp">
+      <Filter>源文件\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\tcp\co_tcp\co_tcp_client\co_tcp_client_echo.cpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\tcp\co_tcp\co_tcp_client\co_tcp_conn.cpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\tcp\co_tcp\co_tcp_client\co_tcp_conn_recv.cpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\tcp\co_tcp\co_tcp_client\co_tcp_conn_send.cpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\tcp\co_tcp\co_tcp_server\co_tcp_accept_conn.cpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\tcp\co_tcp\co_tcp_server\co_tcp_server.cpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\tcp\co_tcp\co_tcp_server\co_tcp_session_recv.cpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\tcp\co_tcp\co_tcp_server\co_tcp_session_send.cpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_server</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\net\tcp\co_tcp\co_tcp_pub.hpp">
+      <Filter>源文件\net\tcp\co_tcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\tcp\ssl_client.hpp">
+      <Filter>源文件\net\tcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\tcp\ssl_pub.hpp">
+      <Filter>源文件\net\tcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\tcp\ssl_server.hpp">
+      <Filter>源文件\net\tcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\tcp\tcp_client.hpp">
+      <Filter>源文件\net\tcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\tcp\tcp_pub.hpp">
+      <Filter>源文件\net\tcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\tcp\tcp_server.hpp">
+      <Filter>源文件\net\tcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\tcp\tcp_session.hpp">
+      <Filter>源文件\net\tcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\av\av.hpp">
+      <Filter>源文件\utils\av</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\av\media_packet.hpp">
+      <Filter>源文件\utils\av</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\av\media_statics.hpp">
+      <Filter>源文件\utils\av</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\av\wait_basedon_timestamp.hpp">
+      <Filter>源文件\utils\av</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\base64.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\byte_crypto.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\byte_stream.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\co_pub.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\crc.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\data_buffer.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\io_interface.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\ipaddress.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\json.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\logger.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\stream_statics.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\stringex.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\timeex.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\timer.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\uuid.hpp">
+      <Filter>源文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\tcp\co_tcp\co_tcp_client\co_tcp_conn.hpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\tcp\co_tcp\co_tcp_client\co_tcp_conn_recv.hpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\tcp\co_tcp\co_tcp_client\co_tcp_conn_send.hpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\tcp\co_tcp\co_tcp_server\co_tcp_accept_conn.hpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\tcp\co_tcp\co_tcp_server\co_tcp_server.hpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\tcp\co_tcp\co_tcp_server\co_tcp_session_recv.hpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\tcp\co_tcp\co_tcp_server\co_tcp_session_send.hpp">
+      <Filter>源文件\net\tcp\co_tcp\co_tcp_server</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
