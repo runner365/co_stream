@@ -20,7 +20,7 @@
  */
 
 #ifndef _WIN32_WINNT
-# define _WIN32_WINNT   0x0A00
+# define _WIN32_WINNT   0x0600
 #endif
 
 #if !defined(_SSIZE_T_) && !defined(_SSIZE_T_DEFINED)
@@ -32,12 +32,20 @@ typedef intptr_t ssize_t;
 
 #include <winsock2.h>
 
+#if defined(__MINGW32__) && !defined(__MINGW64_VERSION_MAJOR)
+typedef struct pollfd {
+  SOCKET fd;
+  short  events;
+  short  revents;
+} WSAPOLLFD, *PWSAPOLLFD, *LPWSAPOLLFD;
+#endif
+
 #ifndef LOCALE_INVARIANT
 # define LOCALE_INVARIANT 0x007f
 #endif
 
 #include <mswsock.h>
-/* Disable the typedef in mstcpip.h of MinGW. */
+// Disable the typedef in mstcpip.h of MinGW.
 #define _TCP_INITIAL_RTO_PARAMETERS _TCP_INITIAL_RTO_PARAMETERS__AVOID
 #define TCP_INITIAL_RTO_PARAMETERS TCP_INITIAL_RTO_PARAMETERS__AVOID
 #define PTCP_INITIAL_RTO_PARAMETERS PTCP_INITIAL_RTO_PARAMETERS__AVOID
@@ -62,7 +70,7 @@ typedef intptr_t ssize_t;
 # define S_IFLNK 0xA000
 #endif
 
-/* Define missing in Windows Kit Include\{VERSION}\ucrt\sys\stat.h */
+// Define missing in Windows Kit Include\{VERSION}\ucrt\sys\stat.h
 #if defined(_CRT_INTERNAL_NONSTDC_NAMES) && _CRT_INTERNAL_NONSTDC_NAMES && !defined(S_IFIFO)
 # define S_IFIFO _S_IFIFO
 #endif
@@ -282,8 +290,8 @@ typedef struct {
 #define UV_ONCE_INIT { 0, NULL }
 
 typedef struct uv_once_s {
-  unsigned char unused;
-  INIT_ONCE init_once;
+  unsigned char ran;
+  HANDLE event;
 } uv_once_t;
 
 /* Platform-specific definitions for uv_spawn support. */
@@ -349,7 +357,7 @@ typedef struct {
   /* Counter to started timer */                                              \
   uint64_t timer_counter;                                                     \
   /* Threadpool */                                                            \
-  struct uv__queue wq;                                                        \
+  void* wq[2];                                                                \
   uv_mutex_t wq_mutex;                                                        \
   uv_async_t wq_async;
 
@@ -478,7 +486,7 @@ typedef struct {
     uint32_t payload_remaining;                                               \
     uint64_t dummy; /* TODO: retained for ABI compat; remove this in v2.x. */ \
   } ipc_data_frame;                                                           \
-  struct uv__queue ipc_xfer_queue;                                            \
+  void* ipc_xfer_queue[2];                                                    \
   int ipc_xfer_queue_length;                                                  \
   uv_write_t* non_overlapped_writes_tail;                                     \
   CRITICAL_SECTION readfile_thread_lock;                                      \
@@ -499,11 +507,8 @@ typedef struct {
   union {                                                                     \
     struct {                                                                  \
       /* Used for readable TTY handles */                                     \
-      union {                                                                 \
-        /* TODO: remove me in v2.x. */                                        \
-        HANDLE unused_;                                                       \
-        int mode;                                                             \
-      } mode;                                                                 \
+      /* TODO: remove me in v2.x. */                                          \
+      HANDLE unused_;                                                         \
       uv_buf_t read_line_buffer;                                              \
       HANDLE read_raw_wait;                                                   \
       /* Fields used for translating win keystrokes into vt100 characters */  \
@@ -545,10 +550,7 @@ typedef struct {
   unsigned char events;
 
 #define UV_TIMER_PRIVATE_FIELDS                                               \
-  union {                                                                     \
-    void* heap[3];                                                            \
-    struct uv__queue queue;                                                   \
-  } node;                                                                     \
+  void* heap_node[3];                                                         \
   int unused;                                                                 \
   uint64_t timeout;                                                           \
   uint64_t repeat;                                                            \

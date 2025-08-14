@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)\src;$(SolutionDir)\src\utils\av;$(SolutionDir)\src\utils;$(SolutionDir)\src\net\tcp\co_tcp;$(SolutionDir)\src\net\tcp;$(SolutionDir)\src\net;$(SolutionDir)\3rdparty\libuv\include;$(SolutionDir)\3rdparty\openssl\include;$(SolutionDir)\3rdparty\libuv\lib;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\3rdparty\libuv\lib;$(SolutionDir)\3rdparty\openssl\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\src;$(SolutionDir)\src\utils\av;$(SolutionDir)\src\utils;$(SolutionDir)\src\net\tcp\co_tcp;$(SolutionDir)\src\net\tcp;$(SolutionDir)\src\net;$(SolutionDir)\win_3rdparty\libuv\include;$(SolutionDir)\win_3rdparty\openssl\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\win_3rdparty\libuv\lib;$(SolutionDir)\win_3rdparty\openssl\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
