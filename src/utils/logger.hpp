@@ -80,7 +80,11 @@ public:
             std::cout << ss.str();
         } else {
             FILE* fp;
+#ifdef _WIN64
             errno_t err = fopen_s(&fp, filename_.c_str(), "ab+");
+#else
+            int err = fopen_s(&fp, filename_.c_str(), "ab+");
+#endif
             if (err == 0 && fp != nullptr) {
                 fwrite(ss.str().c_str(), ss.str().length(), 1, fp);
                 fclose(fp);
