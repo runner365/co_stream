@@ -82,13 +82,17 @@ public:
             FILE* fp;
 #ifdef _WIN64
             errno_t err = fopen_s(&fp, filename_.c_str(), "ab+");
-#else
-            int err = fopen_s(&fp, filename_.c_str(), "ab+");
-#endif
             if (err == 0 && fp != nullptr) {
                 fwrite(ss.str().c_str(), ss.str().length(), 1, fp);
                 fclose(fp);
             }
+#else
+            fp = fopen(filename_.c_str(), "ab+");
+            if (fp != nullptr) {
+                fwrite(ss.str().c_str(), ss.str().length(), 1, fp);
+                fclose(fp);
+            }
+#endif
             if (console_enable_) {
                 std::cout << ss.str();
             }
@@ -210,15 +214,15 @@ inline void LogInfoData(Logger* logger, const uint8_t* data, size_t len, const c
     const int MAX_LINES = 100;
     int line = 0;
     int index = 0;
-    print_len += snprintf(print_data, sizeof(print_data), "%s:", dscr);
+    print_len += snprintf(print_data, print_buffer_size, "%s:", dscr);
     for (index = 0; index < (int)len; index++) {
         if ((index%16) == 0) {
-            print_len += snprintf(print_data + print_len, sizeof(print_data) - print_len, "\r\n");
+            print_len += snprintf(print_data + print_len, print_buffer_size - print_len, "\r\n");
             if (++line > MAX_LINES) {
                 break;
             }
         }
-        print_len += snprintf(print_data + print_len, sizeof(print_data) - print_len,
+        print_len += snprintf(print_data + print_len, print_buffer_size - print_len,
             " %02x", *(static_cast<const uint8_t*>(data + index)));
     }
 
